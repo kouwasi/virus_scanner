@@ -2,17 +2,11 @@ defmodule VirusScanner do
   use Application
   alias Alchemy.Client
 
-  defmodule Commands do
-    use Alchemy.Cogs
-
-    Cogs.def ping do
-      Cogs.say "pong!"
-    end
-  end
+  @token Application.get_env(:virus_scanner, :token)
 
   def start(_type, _args) do
-    run = Client.start("your token here")
-    use Commands
+    run = Client.start(@token)
+    use VirusScanner.OnMessage
     run
   end
 end
