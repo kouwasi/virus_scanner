@@ -26,7 +26,9 @@ defmodule VirusScanner.Mixfile do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
       {:alchemy, "~> 0.6.1", hex: :discord_alchemy},
       {:virus_total, "~> 0.0.2"},
-      {:httpoison, "~> 0.13.0", override: true}
+      {:httpoison, "~> 0.13.0", override: true},
+      {:quantum, "~> 2.2"},
+      {:timex, "~> 3.1"}
     ]
   end
 end

@@ -29,4 +29,15 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 config :virus_scanner,
-  token: ""
+  discord_token: "your token",
+  virus_total_token: "your token"
+
+config :porcelain, driver: Porcelain.Driver.Basic
+
+config :quantum,
+  timezone: "Asia/Tokyo"
+
+config :virus_scanner, VirusScanner.Scheduler,
+  jobs: [
+    {"* * * * *", fn -> VirusScanner.OnMessage.check_reports() end}
+  ]
